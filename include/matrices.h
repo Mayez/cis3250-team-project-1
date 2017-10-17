@@ -1,6 +1,6 @@
 
-void matrix_sum();
+void matrixSum();
 
-void matrix_product();
+void matrixProduct();
 
-void matrix_transpose();
+void matrixTranspose();

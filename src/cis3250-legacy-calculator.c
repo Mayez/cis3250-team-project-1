@@ -314,9 +314,9 @@ if(menu==2){
        scanf("%d",&operation_number);
 
       switch(operation_number){
-       case 1: matrix_sum();break;
-       case 2: matrix_transpose();break;
-       case 3: matrix_product();break;
+       case 1: matrixSum();break;
+       case 2: matrixTranspose();break;
+       case 3: matrixProduct();break;
        }
 	}
 

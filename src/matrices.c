@@ -1,19 +1,25 @@
+// Version: 0.0.1
+// Last major update: 10/17/2017 by Max Mastalerz
+// Author(s): Max Mastalerz
+// Description: File containing the functions for matrix sum, product, & transposition calculations
+// Etc. This file is currently in the process of being refactored to follow our team coding conventions
+
 #include <stdio.h>
 
-void matrix_sum() {
-
+//Calculates the sum of a matrix
+void matrixSum() {
     int i, j, n1, m1, n2, m2;
 
-    printf("Enter the number of rows of matrix 1:");
+    printf("Enter the number of rows of matrix 1: ");
     scanf("%d", &n1);
 
-    printf("Enter the number of columns of matrix 1:");
+    printf("Enter the number of columns of matrix 1: ");
     scanf("%d", &m1);
 
-    printf("Enter the number of rows of matrix 2:");
+    printf("Enter the number of rows of matrix 2: ");
     scanf("%d", &n2);
 
-    printf("Enter the number of columns of matrix 2:");
+    printf("Enter the number of columns of matrix 2: ");
     scanf("%d", &m2);
 
     if(n1==n2 && m1==m2) {
@@ -22,23 +28,27 @@ void matrix_sum() {
         float c[n1][m1];
 
         for(i=0; i<n1; i++) {
-            printf("Enter the members of matrix 1 row %d :",i+1);
+            printf("Enter the members of matrix 1 row %d : ",i+1);
             for(j=0; j<m1; j++){
                 scanf("%f", &a[i][j]);
             }
         }
+
         for(i=0; i<n2; i++) {
-            printf("Enter the members of matrix 2 row %d :",i+1);
+            printf("Enter the members of matrix 2 row %d : ",i+1);
             for(j=0;j<m2;j++){
                 scanf("%f", &b[i][j]);
             }
         }
+        
         for(i=0; i<n1; i++) {
             for(j=0; j<m1; j++){
                 c[i][j] = a[i][j] + b[i][j];
             }
         }
-        printf("The sum of both matrices is\n:");
+        
+        printf("The sum of both matrices is\n: ");
+        
         for(j=0; j<m1; j++) {
             for(i=0; i<n1; i++) {
                 printf("\t\t %.0f", c[i][j]);
@@ -50,23 +60,23 @@ void matrix_sum() {
     }
 }
 
-
-void matrix_product() {
+// Calculates the product of a matrix
+void matrixProduct() {
     int i, j, k, l;
     int n1, n2;
     int m1, m2;
     //int i, j, n1, m1, n2, m2, l, k;
 
-    printf("Enter the number of rows of matrix 1:");
+    printf("Enter the number of rows of matrix 1: ");
     scanf("%d", &n1);
 
-    printf("Enter the number of columns of matrix :");
+    printf("Enter the number of columns of matrix : ");
     scanf("%d", &m1);
 
-    printf("Enter the number of rows of matrix 2:");
+    printf("Enter the number of rows of matrix 2: ");
     scanf("%d", &n2);
 
-    printf("Enter the number of columns of matrix 2:");
+    printf("Enter the number of columns of matrix 2: ");
     scanf("%d", &m2);
 
     float a[n1][m1];
@@ -74,14 +84,15 @@ void matrix_product() {
     float c[n1][m1];
 
     for(i=0; i<n1; i++){
-        printf("Enter the members of matrix 1 row %d :",i+1);
+        printf("Enter the members of matrix 1 row %d : ",i+1);
         
         for(j=0; j<m1; j++) {
             scanf("%f", &a[i][j]);
         }
     }
+
     for(i=0; i<n2; i++){
-        printf("Enter the members of matrix 2 row %d :",i+1);
+        printf("Enter the members of matrix 2 row %d : ",i+1);
         
         for(j=0; j<m2; j++) {
             scanf("%f", &b[i][j]);
@@ -105,23 +116,22 @@ void matrix_product() {
         
         printf("\n");
     }
-
-
 }
 
-void matrix_transpose() {
+// Performs matrix transposition
+void matrixTranspose() {
     int i, j, n, m;
 
-    printf("Enter the number of rows:");
+    printf("Enter the number of rows: ");
     scanf("%d", &n);
 
-    printf("Enter the number of columns:");
+    printf("Enter the number of columns: ");
     scanf("%d", &m);
 
     float a[n][m];
 
     for(i=0; i<n; i++) {
-        printf("Enter the members of row %d :", i+1);
+        printf("Enter the members of row %d : ", i+1);
         for(j=0; j<m; j++) {
             scanf("%f", &a[i][j]);
         }
