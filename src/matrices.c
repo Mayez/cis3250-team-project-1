@@ -70,7 +70,7 @@ void matrixProduct() {
     printf("Enter the number of rows of matrix 1: ");
     scanf("%d", &n1);
 
-    printf("Enter the number of columns of matrix : ");
+    printf("Enter the number of columns of matrix 1: ");
     scanf("%d", &m1);
 
     printf("Enter the number of rows of matrix 2: ");
