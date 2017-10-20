@@ -373,102 +373,109 @@ if(menu==2){
 
 }while(smenu!=0);
 }
+//Kelsey Kirkland started here till end
 
-if(menu==3){
+if(menu == 3) {
 
 	warp:
 
-		//system("clear");
-		printf("\n===========================\n");
-		printf("Accountant Calculator Menu\n");
-		printf("===========================\n");
-		printf("Please set value first\n");
-		printf("\n");
+	//system("clear");
+	printf("\n===========================\n");
+	printf("Accountant Calculator Menu\n");
+	printf("===========================\n");
+	printf("Please set value first\n");
+	printf("\n");
 
-	int n,i,j,amenu;
-	float rest,max,min,x_bar=0,sum=0;
-	float med,mod,count;
+	int numTerms;
+	int amenu;
+	float rest;
+	float max;
+	float min;
+	float x_bar = 0;
+	float sum = 0;
+	float med;
+	float mod;
+	float count;
 	int temp;
-
-		n=input("Enter number of term: ");
-
 	float set[n];
 	int numtemp[n];
 
-	 for(i=0;i<n;i++){
-		set[i]=inputAry("Enter value terms",i);
+	n = input("Enter number of term: ");
+
+	for(int i = 0; i < numTerms; i++) {
+		set[i] = inputAry("Enter value terms", i);
 	}
 
-	 for(i=0;i<n;i++){
-	 	 for(j=0;j<=i;j++){
-     			 if(set[j]>set[i]){
-				rest=set[j];
-				set[j]=set[i];
-				set[i]=rest;
- 			 }
+	for(i = 0; i < numTerms; i++) {
+		for(int j = 0; j <= i; j++) {
+     			if(set[j] > set[i]) {
+				rest = set[j];
+				set[j] = set[i];
+				set[i] =rest;
+ 			}
   		}
   	}
 
-min = set[0];
-max = set[n-1];
+	min = set[0];
+	max = set[numTerms - 1];
 
-for(i=0;i<n;i++){
-	sum+=set[i];
-}
-x_bar=(sum/n);
-
-if((n%2)!=0){
-	med=set[((n+1)/2)-1];
-}
-else{
-	med=(set[((n+1)/2)]+set[((n+1)/2)-1])/2;
-}
-
-for(i=0;i<n;i++){
-	numtemp[i]=0;
-}
-for(i=0;i<n;i++){
-	temp=set[i];
-	for(j=i;j<n;j++){
-	if(set[j]==temp){
-		numtemp[i]++;
+	for(i = 0;i < numTerms; i++) {
+		sum+ = set[i];
 	}
+
+	x_bar = (sum/numTerms);
+
+	if((numTerms % 2) != 0) {
+		med = set[((numTerms+1)/2) - 1];
+	} else {
+		med=(set[((numTerms+1)/2)]+set[((numTerms+1)/2)-1])/2;
 	}
-}
 
-temp=numtemp[0];
-for(i=1;i<n;i++){
-	if(numtemp[i]>temp){
-		temp = numtemp[i];
+	for(i = 0; i < numTerms; i++) {
+		numtemp[i] = 0;
 	}
-}
 
-if(i==999){//Always False If
-
-warp1://Warp form menu
-j=0;
-
-for(i=0;i<n;i++){
-	if(numtemp[i]==temp){
-		j++;
+	for(i = 0; i < numTerms; i++) {
+		temp = set[i];
+		for(j = i; j < numTerms; j++) {
+			if(set[j] == temp) {
+				numtemp[i]++;
+			}
+		}
 	}
-}
 
-if(j==1){
-	for(i=0;i<n;i++){
-	if(numtemp[i]==temp){
-		printf("%.4f\n",set[i]);
+	temp = numtemp[0];
+
+	for(i = 1; i < numTerms; i++) {
+		if(numtemp[i] > temp) {
+			temp = numtemp[i];
+		}
 	}
+
+	if(i == 999) {		//Always False If
+		warp1:		//Warp form menu
+		
+		j=0;
+
+		for(i = 0; i < numTerms; i++) {
+			if(numtemp[i] == temp){
+				j++;
+			}
+		}
+
+		if (j == 1) {
+			for(i = 0; i < numTerms; i++) { 
+				if(numtemp[i] == temp) {
+					printf("%.4f\n",set[i]);
+				}
+			}
+		} else {
+			printf("Not have mode value\n");	
+		}
+
 	}
-}
 
-else{
-	printf("Not have mode value\n");	
-}
-
-}
-
-	 do{
+	do{
 		printf("\n===========================\n");
 		printf("Accountant Calculator Menu\n");
 		printf("===========================\n");
@@ -481,66 +488,55 @@ else{
 		printf("7.Show value(sort)\n");
 		printf("8.Set new value\n");
 		printf("0.Back\n");
-		amenu = input("Select Menu: ");//input acountant  menu
+		
+		amenu = input("Select Menu: ");	//input acountant  menu
 		system("clear");
 
-		if(amenu==1){
+		if(amenu == 1) {
 			printf("\n");
-			aryPrint("Max is",max);
-		}
-
-		if(amenu==2){
+			aryPrint ("Max is", max);
+		} else if (amenu == 2) {
 			printf("\n");
-			aryPrint("Min is",min);
-		}
-
-		if(amenu==3){
+			aryPrint("Min is", min);
+		} else if(amenu == 3) {
 			printf("\n");
-			aryPrint("X-bar is",x_bar);
-		}
-
-		if(amenu==4){
+			aryPrint("X-bar is", x_bar);
+		} else if(amenu == 4) {
 			printf("\n");
 			aryPrint("Range is",max-min);
-		}
-
-		if(amenu==5){
+		} else if(amenu == 5) {
 			printf("\n");
-			aryPrint("Med is",med);
-		}
-
-		if(amenu==6){
+			aryPrint("Med is", med);
+		} else if(amenu == 6) {
 			printf("\n");
 			printf("Mode is: ");
 			goto warp1;
-		}
-
-		if(amenu==7){
+		} else if(amenu == 7) {
 			printf("\n");
 			printf("Set of number is(sort): ");
-			for(i=0;i<n;i++){
-			printf("%.3f ",set[i]);
+			for(i = 0; i < numTerms; i++) {
+				printf("%.3f ", set[i]);
 			}
-		}
-
-		if(amenu==8){
+		} else if(amenu == 8) {
 			goto warp;
 		}
 
-		}while(amenu!=0);
-	}
+	} while(amenu != 0);
+}
 
-	if(menu==4){
-		char text;
+if(menu == 4) {
+	char text;
 
-			g_help = fopen("User_helping.txt","r");
+	g_help = fopen("User_helping.txt","r");
 		
-			while((text=fgetc(g_help))!=EOF){
-				fprintf(stdout,"%c",text);
-			}
-
-			fclose(g_help);
+	while((text = fgetc(g_help)) != EOF) {
+		fprintf(stdout, "%c", text);
 	}
+
+	fclose(g_help);
+}
+
+
 }while(menu!=0);
 
 return 0;
