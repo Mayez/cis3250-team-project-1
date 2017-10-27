@@ -1,3 +1,8 @@
+//Version: final
+//Last Major Update:Wed Oct 18 2017
+//Author:
+//Description: Calculator
+
 #include <stdio.h>
 #include <stdlib.h>
 #define PI 3.1415926535897932384626433832795
@@ -7,154 +12,188 @@
 #include "conversions.h"
 #include<string.h>
 
-FILE*help;
+FILE *g_help;
 
-
-float input(char*inname)
-{
-	float key;
+//function to catch invalid input from user
+//Returns user input
+//Params- String that gets printed to the screen
+float input(char *inName) {
+    float key;
 	char temp[9999];
 	
 	do{
-	printf("%s",inname);
-	 if(!scanf("%f",&key)){
-		scanf("%s",&temp);//recieve temp
+	    printf("%s", inName);
+	    if(!scanf("%f", &key)){
+		    scanf("%s", &temp);  //recieve temp
 	      	printf("Please try again!\n");
-	}
-	else{
-		return key;
-	}
-	}while(1);	 
+	    }else{
+		    return key;
+	    }
+	}while(1);
+    
 }
 
-float inputAry(char*inname,int num)
-{
-	float key;
+//function to catch invalid input from user
+//Returns user input
+//Params- String that gets printed to the screen, number that also gets printed to screen
+float inputAry(char *inName, int num) {
+    float key;
 	char temp[9999];
 
 	do{
-	printf("%s[%d]: ",inname,num+1);
-	 if(!scanf("%f",&key)){
-		scanf("%s",&temp);
+	    printf("%s[%d]: ", inName, num+1);
+        if(!scanf("%f", &key)){
+		    scanf("%s", &temp);
 	      	printf("Please try again!\n");
-	}
-	else{
-		return key;
-	}
-	}while(1);	 
+	    }else{
+		    return key;
+	    }
+	}while(1);
+    
 }
 
-float plus(float adder,float addin)
-{
+//function to add to float values together
+//returns the result
+//params- to values that need to be added
+float plus(float adder, float addin) {
 	float result;
-	result=adder+addin;
+	result = adder + addin;
+    return result;
+}
+
+//function to subtract two values
+//returns result
+//params-two values to be subtracted
+float minus(float miner, float minin) {
+	float result;
+	result = miner - minin;
 	return result;
 }
 
-float minus(float miner,float minin)
-{
+//function to multiply two values
+//returns result
+//params-two values to be multiplied
+float mult(float multer, float multin) {
 	float result;
-	result=miner-minin;
+	result = multer * multin;
 	return result;
 }
 
-float mult(float multer,float multin)
-{
+//function to divide two values
+//returns result
+//params-two values to be divided
+float divind(float divider, float dividin) {
 	float result;
-	result=multer*multin;
+	result = divider / dividin;
 	return result;
 }
 
-float divind(float divider,float dividin)
-{
-	float result;
-	result=divider/dividin;
-	return result;
-}
-
-int factorial(int term)
-{
-
-	if(term==0){
+//function to calculate the factorial of a number
+//returns 1 if value is equal to 0 otherwise returns factorial
+//params 1 int value to be used in factorual calculation
+int factorial(int term) {
+	if(term == 0){
 		return 1;
 	}
 
-	return term*factorial(term-1);
+	return term * factorial(term - 1);
 }
 
-int fib(int term)
-{
-	if(term==1){
+//function to calculate fibonacci sequence
+//returns 0 if value is 1 or returns 1 if value is 2 otherwise returns the sequence
+//params 1 int value to be used in factorual calculation
+int fib(int term) {
+	if(term == 1){
 		return 0;
 	}
-	if(term==2){
+	if(term == 2){
 		return 1;
 	}
-	return fib(term-1)+fib(term-2);
+	return fib(term - 1) + fib(term - 2);
 }
 
-float power(float base,int pow)
-{
-	int i;
-	float mem=1;
-	for(i=0;i<pow;i++){
-		mem*=base;
+//function to calculate power of a number
+// returns the result
+//params two numbers first is the base, second is the power
+float power(float base, int pow) {
+	float mem = 1;
+    
+	for(int i=0; i < pow; i++){
+		mem *= base;
 	}
+    
 	return mem;
 }
 
-float sine(float radius)
-{
-	float val,sin;
-		val=radius*(PI/180);
-		sin=val-(power(val,3)/factorial(3))+(power(val,5)/factorial(5))-(power(val,7)/factorial(7));
-	return sin;
-}
-
-float cosine(float radius)
-{
-	float val,cos;
-		val=radius*(PI/180);
-		cos=1-(power(val,2)/factorial(2))+(power(val,4)/factorial(4))-(power(val,6)/factorial(6));
-	return cos;
-}
-
-int spprint(char*screen,char*sym,int ini,int res)
-{
-	printf("%s %d%s = %d\n",screen,ini,sym,res);
+//function to calculate sin
+//returns the result
+//params- radius of the circle
+float sine(float radius) {
+	float val, sin;
+    val = radius * (PI / 180);
+    sin = val - (power(val, 3) / factorial(3)) + (power(val,5) / factorial(5)) - (power(val,7)/factorial(7));
 	
-return 0;
+    return sin;
 }
 
-float spprintf(char*screen,char*sym,float ini,float res)
-{
-	printf("%s %.4f%s = %.4f\n",screen,ini,sym,res);
-
-return 0;
+//function to calculate the cosine
+//returns the result
+//params-radius of the circle
+float cosine(float radius) {
+	float val,cos;
+    val = radius * (PI / 180);
+    cos = 1 - (power(val,2) / factorial(2)) + (power(val,4) / factorial(4)) - (power(val,6) / factorial(6));
+	
+    return cos;
 }
 
-float print(char*screen,char*sym,float ini,float upt,float res)
-{
-	printf("%s %.4f %s %.4f = %.4f\n",screen,ini,sym,upt,res);
-
-return 0;
-}
-float Aryprint(char*screen,float ans)
-{
-	printf("%s : %.4f\n",screen,ans);
-
-return 0;
+//Function to print information to screen
+//returns 0
+//params- information that needs to be printed to screen
+int spPrint(char *screen, char *sym, int ini, int res) {
+	printf("%s %d%s = %d\n",screen, ini, sym, res);
+	
+    return 0;
 }
 
+//Function to print information to screen
+//returns 0
+//params-information that needs to be printed to screen
+float spPrintF(char *screen, char *sym, float ini, float res) {
+	printf("%s %.4f%s = %.4f\n",screen, ini, sym, res);
 
+    return 0;
+}
 
-int main(int argc,char*argv[])
-{
-	float a,b,c;
-	float r1,r2;
+//Function to print information to screen
+//returns 0
+//params-information that needs to be printed to screen
+float print(char *screen, char *sym, float ini, float upt, float res) {
+	printf("%s %.4f %s %.4f = %.4f\n", screen, ini, sym, upt, res);
+
+    return 0;
+}
+
+//Function to print information to screen
+//returns 0
+//params-information that needs to be printed to screen
+float aryPrint(char *screen, float ans) {
+	printf("%s : %.4f\n", screen, ans);
+
+    return 0;
+}
+
+int main(int argc, char*argv[]) {
+	float val1;
+    float val2;
+    float val3;
+    float result1;
+    float result2;
 	char sym;
-	int menu,rmenu,smenu;
-
+    int menu;
+    int rMenu;
+    int sMenu;
+//Kirat Rakhra ^^^^-----------------------------------------------------------------------------------^^^^
 
 do{
 	printf("\n======\n");
@@ -251,28 +290,28 @@ if(menu==2){
 		a=input("Enter numbers of term: ");
 		c=fact(a);
 		printf("\n");
-		spprint("Factorial of","!",a,c);
+		spPrint("Factorial of","!",a,c);
 	}
 
 	if(smenu==3){
 		a=input("Enter numbers of term: ");
 		c=fib(a);
 		printf("\n");
-		spprint("Fibonacci of"," ",a,c);
+		spPrint("Fibonacci of"," ",a,c);
 	}
 
 	if(smenu==4){
 		a=input("Enter your value: ");
 		c=sine(a);
 		printf("\n");
-		spprintf("Sine of"," ",a,c);
+		spPrintF("Sine of"," ",a,c);
 	}
 
 	if(smenu==5){
 		a=input("Enter your value: ");
 		c=cosine(a);
 		printf("\n");
-		spprintf("Cosine of"," ",a,c);
+		spPrintF("Cosine of"," ",a,c);
 	}
 
 	if(smenu==6){
@@ -281,21 +320,21 @@ if(menu==2){
 		r2=cosine(a);
 		c=r1/r2;
 		printf("\n");
-		spprintf("Tangent of"," ",a,c);
+		spPrintF("Tangent of"," ",a,c);
 	}
 
 	if(smenu==7){
 		a=input("Enter your value: ");
 		c=sine(a);
 		printf("\n");
-		spprintf("Cosec of"," ",a,1/c);
+		spPrintF("Cosec of"," ",a,1/c);
 	}
 
 	if(smenu==5){
 		a=input("Enter your value: ");
 		c=cosine(a);
 		printf("\n");
-		spprintf("Sec of"," ",a,1/c);
+		spPrintF("Sec of"," ",a,1/c);
 	}
 
 	if(smenu==8){
@@ -304,7 +343,7 @@ if(menu==2){
 		r2=cosine(a);
 		c=r1/r2;
 		printf("\n");
-		spprintf("Cot of"," ",a,1/c);
+		spPrintF("Cot of"," ",a,1/c);
 	}
 
 	if(smenu==10){
@@ -451,27 +490,27 @@ else{
 
 		if(amenu==1){
 			printf("\n");
-			Aryprint("Max is",max);
+			aryPrint("Max is",max);
 		}
 
 		if(amenu==2){
 			printf("\n");
-			Aryprint("Min is",min);
+			aryPrint("Min is",min);
 		}
 
 		if(amenu==3){
 			printf("\n");
-			Aryprint("X-bar is",x_bar);
+			aryPrint("X-bar is",x_bar);
 		}
 
 		if(amenu==4){
 			printf("\n");
-			Aryprint("Range is",max-min);
+			aryPrint("Range is",max-min);
 		}
 
 		if(amenu==5){
 			printf("\n");
-			Aryprint("Med is",med);
+			aryPrint("Med is",med);
 		}
 
 		if(amenu==6){
@@ -498,13 +537,13 @@ else{
 	if(menu==4){
 		char text;
 
-			help = fopen("User_helping.txt","r");
+			g_help = fopen("User_helping.txt","r");
 		
-			while((text=fgetc(help))!=EOF){
+			while((text=fgetc(g_help))!=EOF){
 				fprintf(stdout,"%c",text);
 			}
 
-			fclose(help);
+			fclose(g_help);
 	}
 }while(menu!=0);
 
