@@ -8,7 +8,12 @@
 
 //Calculates the sum of a matrix
 void matrixSum() {
-    int i, j, n1, m1, n2, m2;
+    int i;
+    int j;
+    int n1;
+    int m1;
+    int n2;
+    int m2;
 
     printf("Enter the number of rows of matrix 1: ");
     scanf("%d", &n1);
@@ -22,35 +27,35 @@ void matrixSum() {
     printf("Enter the number of columns of matrix 2: ");
     scanf("%d", &m2);
 
-    if(n1==n2 && m1==m2) {
+    if(n1 == n2 && m1 == m2) {
         float a[n1][m1];
         float b[n2][m2];
         float c[n1][m1];
 
-        for(i=0; i<n1; i++) {
-            printf("Enter the members of matrix 1 row %d : ",i+1);
-            for(j=0; j<m1; j++){
+        for(i = 0; i < n1; i++) {
+            printf("Enter the members of matrix 1 row %d : ", i+1);
+            for(j = 0; j < m1; j++) {
                 scanf("%f", &a[i][j]);
             }
         }
 
-        for(i=0; i<n2; i++) {
-            printf("Enter the members of matrix 2 row %d : ",i+1);
-            for(j=0;j<m2;j++){
+        for(i = 0; i < n2; i++) {
+            printf("Enter the members of matrix 2 row %d : ", i+1);
+            for(j = 0; j < m2; j++) {
                 scanf("%f", &b[i][j]);
             }
         }
         
-        for(i=0; i<n1; i++) {
-            for(j=0; j<m1; j++){
+        for(i = 0; i < n1; i++) {
+            for(j = 0; j < m1; j++) {
                 c[i][j] = a[i][j] + b[i][j];
             }
         }
         
         printf("The sum of both matrices is\n: ");
         
-        for(j=0; j<m1; j++) {
-            for(i=0; i<n1; i++) {
+        for(j = 0; j < m1; j++) {
+            for(i = 0; i < n1; i++) {
                 printf("\t\t %.0f", c[i][j]);
             }
             printf("\n");
@@ -62,10 +67,14 @@ void matrixSum() {
 
 // Calculates the product of a matrix
 void matrixProduct() {
-    int i, j, k, l;
-    int n1, n2;
-    int m1, m2;
-    //int i, j, n1, m1, n2, m2, l, k;
+    int i;
+    int j;
+    int k;
+    int l;
+    int n1;
+    int n2;
+    int m1;
+    int m2;
 
     printf("Enter the number of rows of matrix 1: ");
     scanf("%d", &n1);
@@ -83,25 +92,25 @@ void matrixProduct() {
     float b[n2][m2];
     float c[n1][m1];
 
-    for(i=0; i<n1; i++){
+    for(i = 0; i < n1; i++) {
         printf("Enter the members of matrix 1 row %d : ",i+1);
         
-        for(j=0; j<m1; j++) {
+        for(j = 0; j < m1; j++) {
             scanf("%f", &a[i][j]);
         }
     }
 
-    for(i=0; i<n2; i++){
+    for(i = 0; i < n2; i++) {
         printf("Enter the members of matrix 2 row %d : ",i+1);
         
-        for(j=0; j<m2; j++) {
+        for(j = 0; j < m2; j++) {
             scanf("%f", &b[i][j]);
         }
     }
 
     c[i][j] = 1;
-    for(i=0; i<n1; i++){
-        for(j=0; j<m2; j++) {
+    for(i = 0; i < n1; i++) {
+        for(j = 0; j < m2; j++) {
             c[i][j] = 0;
             c[i][j] += a[i][j] * b[i][j];
         }
@@ -109,8 +118,8 @@ void matrixProduct() {
 
     printf("The product of the matrix is\n:");
 
-    for(j=0; j<m1; j++) {
-        for(i=0; i<n2; i++) {
+    for(j = 0; j < m1; j++) {
+        for(i = 0; i < n2; i++) {
             printf("\t\t %.0f", a[i][j]);
         }
         
@@ -120,7 +129,10 @@ void matrixProduct() {
 
 // Performs matrix transposition
 void matrixTranspose() {
-    int i, j, n, m;
+    int i;
+    int j;
+    int n;
+    int m;
 
     printf("Enter the number of rows: ");
     scanf("%d", &n);
@@ -130,16 +142,16 @@ void matrixTranspose() {
 
     float a[n][m];
 
-    for(i=0; i<n; i++) {
+    for(i = 0; i < n; i++) {
         printf("Enter the members of row %d : ", i+1);
-        for(j=0; j<m; j++) {
+        for(j = 0; j < m; j++) {
             scanf("%f", &a[i][j]);
         }
     }
 
     printf("The transpose of the matrix is\n:");
-    for(j=0; j<m; j++){
-        for(i=0; i<n; i++) {
+    for(j = 0; j < m; j++) {
+        for(i = 0; i < n; i++) {
             printf("\t\t %.0f", a[i][j]);
         }
 
