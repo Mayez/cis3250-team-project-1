@@ -375,170 +375,169 @@ if(menu==2){
 }
 //Kelsey Kirkland started here till end
 
-if(menu == 3) {
+	if(menu == 3) {
 
-	warp:
+		warp:
 
-	//system("clear");
-	printf("\n===========================\n");
-	printf("Accountant Calculator Menu\n");
-	printf("===========================\n");
-	printf("Please set value first\n");
-	printf("\n");
-
-	int numTerms;
-	int amenu;
-	float rest;
-	float max;
-	float min;
-	float x_bar = 0;
-	float sum = 0;
-	float med;
-	float mod;
-	float count;
-	int temp;
-	float set[n];
-	int numtemp[n];
-
-	n = input("Enter number of term: ");
-
-	for(int i = 0; i < numTerms; i++) {
-		set[i] = inputAry("Enter value terms", i);
-	}
-
-	for(i = 0; i < numTerms; i++) {
-		for(int j = 0; j <= i; j++) {
-     			if(set[j] > set[i]) {
-				rest = set[j];
-				set[j] = set[i];
-				set[i] =rest;
- 			}
-  		}
-  	}
-
-	min = set[0];
-	max = set[numTerms - 1];
-
-	for(i = 0;i < numTerms; i++) {
-		sum+ = set[i];
-	}
-
-	x_bar = (sum/numTerms);
-
-	if((numTerms % 2) != 0) {
-		med = set[((numTerms+1)/2) - 1];
-	} else {
-		med=(set[((numTerms+1)/2)]+set[((numTerms+1)/2)-1])/2;
-	}
-
-	for(i = 0; i < numTerms; i++) {
-		numtemp[i] = 0;
-	}
-
-	for(i = 0; i < numTerms; i++) {
-		temp = set[i];
-		for(j = i; j < numTerms; j++) {
-			if(set[j] == temp) {
-				numtemp[i]++;
-			}
-		}
-	}
-
-	temp = numtemp[0];
-
-	for(i = 1; i < numTerms; i++) {
-		if(numtemp[i] > temp) {
-			temp = numtemp[i];
-		}
-	}
-
-	if(i == 999) {		//Always False If
-		warp1:		//Warp form menu
-		
-		j=0;
-
-		for(i = 0; i < numTerms; i++) {
-			if(numtemp[i] == temp){
-				j++;
-			}
-		}
-
-		if (j == 1) {
-			for(i = 0; i < numTerms; i++) { 
-				if(numtemp[i] == temp) {
-					printf("%.4f\n",set[i]);
-				}
-			}
-		} else {
-			printf("Not have mode value\n");	
-		}
-
-	}
-
-	do{
+		//system("clear");
 		printf("\n===========================\n");
 		printf("Accountant Calculator Menu\n");
 		printf("===========================\n");
-		printf("1.Show max\n");
-		printf("2.Show min\n");
-		printf("3.Show x-bar\n");
-		printf("4.Show range\n");
-		printf("5.Show Med\n");
-		printf("6.Show Mode\n");
-		printf("7.Show value(sort)\n");
-		printf("8.Set new value\n");
-		printf("0.Back\n");
-		
-		amenu = input("Select Menu: ");	//input acountant  menu
-		system("clear");
+		printf("Please set value first\n");
+		printf("\n");
 
-		if(amenu == 1) {
-			printf("\n");
-			aryPrint ("Max is", max);
-		} else if (amenu == 2) {
-			printf("\n");
-			aryPrint("Min is", min);
-		} else if(amenu == 3) {
-			printf("\n");
-			aryPrint("X-bar is", x_bar);
-		} else if(amenu == 4) {
-			printf("\n");
-			aryPrint("Range is",max-min);
-		} else if(amenu == 5) {
-			printf("\n");
-			aryPrint("Med is", med);
-		} else if(amenu == 6) {
-			printf("\n");
-			printf("Mode is: ");
-			goto warp1;
-		} else if(amenu == 7) {
-			printf("\n");
-			printf("Set of number is(sort): ");
-			for(i = 0; i < numTerms; i++) {
-				printf("%.3f ", set[i]);
-			}
-		} else if(amenu == 8) {
-			goto warp;
+		int numTerms;
+		int aMenu;
+		float rest;
+		float max;
+		float min;
+		float xBar = 0;
+		float sum = 0;
+		float med;
+		float mod;
+		float count;
+		int temp;
+		float set[n];
+		int numTemp[n];
+
+		n = input("Enter number of term: ");
+
+		for(int i = 0; i < numTerms; i++) {
+			set[i] = inputAry("Enter value terms", i);
 		}
 
-	} while(amenu != 0);
-}
+		for(i = 0; i < numTerms; i++) {
+			for(int j = 0; j <= i; j++) {
+     				if(set[j] > set[i]) {
+					rest = set[j];
+					set[j] = set[i];
+					set[i] =rest;
+ 				}
+  			}
+  		}
 
-if(menu == 4) {
-	char text;
+		min = set[0];
+		max = set[numTerms - 1];
 
-	g_help = fopen("User_helping.txt","r");
+		for(i = 0; i < numTerms; i++) {
+			sum+ = set[i];
+		}
+
+		xBar = (sum/numTerms);
+
+		if((numTerms % 2) != 0) {
+			med = set[((numTerms+1)/2) - 1];
+		} else {
+			med = (set[((numTerms+1)/2)]+set[((numTerms+1)/2)-1])/2;
+		}
+
+		for(i = 0; i < numTerms; i++) {
+			numtemp[i] = 0;
+		}
+
+		for(i = 0; i < numTerms; i++) {
+			temp = set[i];
+			for(j = i; j < numTerms; j++) {
+				if(set[j] == temp) {
+					numtemp[i]++;
+				}
+			}
+		}
+
+		temp = numTemp[0];
+
+		for(i = 1; i < numTerms; i++) {
+			if(numTemp[i] > temp) {
+				temp = numTemp[i];
+			}
+		}
+
+	   	if(i == 999) {					// Always False If
+			warp1:					// Warp form menu
 		
-	while((text = fgetc(g_help)) != EOF) {
-		fprintf(stdout, "%c", text);
-	}
+			j=0;
 
-	fclose(g_help);
-}
+			for(i = 0; i < numTerms; i++) {
+				if(numTemp[i] == temp){
+					j++;
+				}
+			}
 
+			if (j == 1) {
+				for(i = 0; i < numTerms; i++) { 
+					if(numTemp[i] == temp) {
+						printf("%.4f\n",set[i]);
+					}
+				}
+			} else {
+				printf("Not have mode value\n");	
+			}	
 
-}while(menu!=0);
+	   	 }
+               
+	    	do{
+			printf("\n===========================\n");
+			printf("Accountant Calculator Menu\n");
+			printf("===========================\n");
+			printf("1.Show max\n");
+			printf("2.Show min\n");
+			printf("3.Show x-bar\n");
+			printf("4.Show range\n");
+			printf("5.Show Med\n");
+			printf("6.Show Mode\n");
+			printf("7.Show value(sort)\n");
+			printf("8.Set new value\n");
+			printf("0.Back\n");
+		
+			aMenu = input("Select Menu: ");	// input acountant  menu
+			system("clear");
 
-return 0;
+			if(aMenu == 1) {
+				printf("\n");
+				aryPrint ("Max is", max);
+			} else if (aMenu == 2) {
+				printf("\n");
+				aryPrint("Min is", min);
+			} else if(aMenu == 3) {
+				printf("\n");
+			aryPrint("X-bar is", x_bar);
+				} else if(aMenu == 4) {
+				printf("\n");
+				aryPrint("Range is",max-min);
+			} else if(aMenu == 5) {
+				printf("\n");
+				aryPrint("Med is", med);
+			} else if(aMenu == 6) {
+				printf("\n");
+				printf("Mode is: ");
+				goto warp1;
+			} else if(aMenu == 7) {
+				printf("\n");
+				printf("Set of number is(sort): ");
+				for(i = 0; i < numTerms; i++) {
+					printf("%.3f ", set[i]);
+				}
+			} else if(aMenu == 8) {
+				goto warp;
+			}
+
+	 	} while(aMenu != 0);
+        }
+
+        if(menu == 4) {
+	    	char text;
+
+	    	g_help = fopen("User_helping.txt","r");
+		
+	    	while((text = fgetc(g_help)) != EOF) {
+			fprintf(stdout, "%c", text);
+	    	}
+
+	 	fclose(g_help);
+        }
+
+	} while(menu!=0);
+
+    return 0;
 }
 
