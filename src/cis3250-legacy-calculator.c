@@ -302,84 +302,84 @@ if(menu==2){
 		printf("\n");
 		spPrintF("Sine of"," ",a,c);
 	}
+//Code refactored by Sam Hopkinson
+//Starting from line 307 until line until line 434
+		if(sMenu == 5) {
+			val1 = input("Enter your value: ");
+			val3 = cosine(val1);
+			printf("\n");
+			spPrintf("Cosine of", " ", val1, val3);
+		}
 
-	if(smenu==5){
-		a=input("Enter your value: ");
-		c=cosine(a);
-		printf("\n");
-		spPrintF("Cosine of"," ",a,c);
+		if(sMenu == 6) {
+			val1 = input("Enter your value: ");
+			result1 = sine(val1);
+			result2 = cosine(val1);
+			val3 = result1 / result2;
+			printf("\n");
+			spPrintf("Tangent of", " ", val1, val3);
+		}
+
+		if(sMenu == 7) {
+			val1 = input("Enter your value: ");
+			val3 = sine(val1);
+			printf("\n");
+			spPrintf("Cosec of", " ", val1, 1 / val3);
+		}
+
+		if(sMenu == 5) {
+			val1 = input("Enter your value: ");
+			val3 = cosine(val1);
+			printf("\n");
+			spPrintf("Sec of"," ", val1, 1 / val3);
+		}
+
+		if(sMenu == 8) {
+			val1 = input("Enter your value: ");
+			result1 = sine(val1);
+			result2 = cosine(val1);
+			val3 = result1 / result2;
+			printf("\n");
+			spPrintf("Cot of", " ", val1, 1 / val3);
+		}
+
+		if(sMenu == 10) {
+			int operationNumber = 0;
+			printf("\n\t\tSum of Matrices(1)\t\tTranspose(2)\t\tProduct of Matrices(3)");
+       		printf("\n\tEnter an operation command:");
+       		scanf("%d", &operationNumber);
+
+       		if(operationNumber == 1) {
+       			matrixSum();
+       		} else if(operationNumber == 2) {
+       			matrixTranspose();
+       		} else if(operationNumber == 3) {
+       			matrixProduct();
+       		}
+		}
+
+		if(sMenu == 11) {
+			operationNumber = 0;
+			printf("\n\n\n\t\tTemperature(1)\t\tTime(2)");
+        	printf("\n\n\n\t\tPlease choose an operation number:");
+        	scanf("%d", &operationNumber);
+
+        	if(operationNumber == 1) {
+        		temp();
+        	} else if(operationNumber == 2) {
+        		time();
+        	}
+        	break;
+		}
+
+
+	}while(sMenu != 0);
 	}
-
-	if(smenu==6){
-		a=input("Enter your value: ");
-		r1=sine(a);
-		r2=cosine(a);
-		c=r1/r2;
-		printf("\n");
-		spPrintF("Tangent of"," ",a,c);
-	}
-
-	if(smenu==7){
-		a=input("Enter your value: ");
-		c=sine(a);
-		printf("\n");
-		spPrintF("Cosec of"," ",a,1/c);
-	}
-
-	if(smenu==5){
-		a=input("Enter your value: ");
-		c=cosine(a);
-		printf("\n");
-		spPrintF("Sec of"," ",a,1/c);
-	}
-
-	if(smenu==8){
-		a=input("Enter your value: ");
-		r1=sine(a);
-		r2=cosine(a);
-		c=r1/r2;
-		printf("\n");
-		spPrintF("Cot of"," ",a,1/c);
-	}
-
-	if(smenu==10){
-		int operation_number=0;
-		       printf("\n\t\tSum of Matrices(1)\t\tTranspose(2)\t\tProduct of Matrices(3)");
-       printf("\n\tEnter an operation command:");
-       scanf("%d",&operation_number);
-
-      switch(operation_number){
-       case 1: matrixSum();break;
-       case 2: matrixTranspose();break;
-       case 3: matrixProduct();break;
-       }
-	}
-
-	if(smenu==11){
-		int operation_number=0;
-		        printf("\n\n\n\t\tTemperature(1)\t\tTime(2)");
-        printf("\n\n\n\t\tPlease choose an operation number:");
-        scanf("%d",&operation_number);
-
-        switch(operation_number){
-            case 1: temp();break;
-            case 2: time();break;
-        }
-        break;
-
-	}
-
-
-
-}while(smenu!=0);
-}
-//Kelsey Kirkland started here till end
 
 	if(menu == 3) {
-
 		warp:
 
-		//system("clear");
+		system("clear");
 		printf("\n===========================\n");
 		printf("Accountant Calculator Menu\n");
 		printf("===========================\n");
@@ -397,40 +397,42 @@ if(menu==2){
 		float mod;
 		float count;
 		int temp;
-		float set[n];
-		int numTemp[n];
+		float set;
+		int numTemp;
 
-		n = input("Enter number of term: ");
+		numTerms = input("Enter number of term: ");
+		set[numTerms];
+		numTemp[numTerms];
 
-		for(int i = 0; i < numTerms; i++) {
+		for(int i = 0; i < numTerms;i++) {
 			set[i] = inputAry("Enter value terms", i);
 		}
 
 		for(i = 0; i < numTerms; i++) {
 			for(int j = 0; j <= i; j++) {
-     				if(set[j] > set[i]) {
+     			if(set[j] > set[i]) {
 					rest = set[j];
 					set[j] = set[i];
-					set[i] =rest;
+					set[i] = rest;
  				}
   			}
   		}
 
 		min = set[0];
-		max = set[numTerms - 1];
+		max = set[numTerms-1];
 
 		for(i = 0; i < numTerms; i++) {
-			sum+ = set[i];
+			sum += set[i];
 		}
-
-		xBar = (sum/numTerms);
+		xBar = (sum / numTerms);
 
 		if((numTerms % 2) != 0) {
-			med = set[((numTerms+1)/2) - 1];
+			med = set[((numTerms + 1) / 2) - 1];
 		} else {
-			med = (set[((numTerms+1)/2)]+set[((numTerms+1)/2)-1])/2;
+			med = (set[((numTerms + 1) / 2)] + set[((numTerms + 1) / 2) - 1 ]) / 2;
 		}
-
+//----------------------------------end of Sam's code--|
+//Kelsey Kirkland started here till end
 		for(i = 0; i < numTerms; i++) {
 			numtemp[i] = 0;
 		}
