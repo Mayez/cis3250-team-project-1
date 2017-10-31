@@ -1,6 +1,6 @@
 // Version: 1.2
 // Last major update: 10/27/2017 by Max Mastalerz
-// Author(s): Kara Maedje
+// Author(s): Kara Maedje, Jason Ellul
 // Description: Function void time() calculates time for
 // the legacy calculator             
 
